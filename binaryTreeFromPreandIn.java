@@ -19,9 +19,8 @@ public class binaryTreeFromPreandIn {
 
     // 105. Construct Binary Tree from Preorder and Inorder Traversal
     int preIndex = 0;
-    Map<Integer, Integer> inOrderMap;
+    Map<Integer, Integer> inOrderMap = new HashMap();
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        inOrderMap = new HashMap();
         for (int i = 0; i < inorder.length; i++) {
             inOrderMap.put(inorder[i], i);
         }
@@ -31,8 +30,8 @@ public class binaryTreeFromPreandIn {
     private TreeNode arrayToTree(int[] preorder, int left, int right) {
         if (left > right) return null;
         int rootVal = preorder[preIndex++];
-        int index = inOrderMap.get(rootVal);
         TreeNode root = new TreeNode(rootVal);
+        int index = inOrderMap.get(rootVal);
         root.left = arrayToTree(preorder, left, index-1);
         root.right = arrayToTree(preorder, index+1, right);
         return root;
