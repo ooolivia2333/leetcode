@@ -18,8 +18,7 @@ public class romanToInt {
         map.put("XC", 90);
         map.put("CD", 400);
         map.put("CM", 900);
-        int sum = 0, i = 0;
-        int ans = 0;
+        int ans = 0, i = 0;
 
         while (i < s.length()) {
             if (i < s.length()-1 && map.containsKey(s.substring(i, i+2))) {
